@@ -6,14 +6,14 @@
 
     class Program
     {
-        private static int beginSplit = 647;  // seconds
-        private static int endSplit = 708;
-        private static string mp3Path = @"D:\mp3\20171001.mp3";
+        private static int beginCut = 3090;  // seconds
+        private static int endCut = 3175;
+        private static string mp3Path = @"D:\mp3\20171022.mp3";
         private static double frameProSec = 19.14183087027915;
 
         static void Main(string[] args)
         {
-            int totalFrameCount = CuttingMp3(beginSplit, endSplit, mp3Path);
+            int totalFrameCount = CuttingMp3(beginCut, endCut, mp3Path);
 
             Console.WriteLine($"Total frame count: {totalFrameCount}");
 

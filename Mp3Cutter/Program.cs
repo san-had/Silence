@@ -13,14 +13,60 @@
 
         static void Main(string[] args)
         {
-            int totalFrameCount = CuttingMp3(beginCut, endCut, mp3Path);
+            int totalFrameCount = GetTotalFrameCount(mp3Path);
+
+            int totalTimeLength = GetTotalTimeLength(mp3Path);
+
+            double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
+
+            //CuttingMp3(beginCut, endCut, mp3Path);
 
             Console.WriteLine($"Total frame count: {totalFrameCount}");
+
+            Console.WriteLine($"Total time length: {totalTimeLength}");
+
+            Console.WriteLine($"FrameProSec: {calculatedFrameProSec}");
 
             Console.Read();
         }
 
-        private static int CuttingMp3(int begin, int end, string mp3Path)
+        private static int GetTotalFrameCount(string mp3Path)
+        {
+            int totalFrameCount = 0;
+
+            using (var reader = new Mp3FileReader(mp3Path))
+            {
+                Mp3Frame frame;
+
+                while ((frame = reader.ReadNextFrame()) != null)
+                {
+                    totalFrameCount++;
+                }
+            }
+
+            return totalFrameCount;
+        }
+
+        private static int GetTotalTimeLength(string mp3Path)
+        {
+            TimeSpan totalTimeLength = TimeSpan.MinValue;
+
+            using (var reader = new Mp3FileReader(mp3Path))
+            {
+                totalTimeLength = reader.TotalTime;
+            }
+
+            var intTotalTimeLength = (int)Math.Round(totalTimeLength.TotalSeconds);
+
+            return intTotalTimeLength;
+        }
+
+        private static double GetFrameProSec(int totalFrameCount, int totalTimeLength)
+        {
+            return (double)totalFrameCount / (double)totalTimeLength;
+        }
+
+        private static void CuttingMp3(int begin, int end, string mp3Path)
         {
             int beginCount = (int)Math.Round(begin * frameProSec);
             int endCount = (int)Math.Round(end * frameProSec);
@@ -57,8 +103,6 @@
 
                 if (writer != null) writer.Dispose();
             }
-
-            return totalFrameCount;
         }
     }
 }

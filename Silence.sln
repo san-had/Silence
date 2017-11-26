@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilenceTest", "SilenceTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3Cutter", "Mp3Cutter\Mp3Cutter.csproj", "{DB27F220-7787-4523-87C4-F0F1BA7550F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3CutterWinFormsUI", "Mp3CutterWinFormsUI\Mp3CutterWinFormsUI.csproj", "{28559915-F0BC-4886-99DE-F9CF514D84AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,18 @@ Global
 		{DB27F220-7787-4523-87C4-F0F1BA7550F6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DB27F220-7787-4523-87C4-F0F1BA7550F6}.Release|x86.ActiveCfg = Release|Any CPU
 		{DB27F220-7787-4523-87C4-F0F1BA7550F6}.Release|x86.Build.0 = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Debug|x86.Build.0 = Debug|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|x86.ActiveCfg = Release|Any CPU
+		{28559915-F0BC-4886-99DE-F9CF514D84AB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

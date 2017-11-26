@@ -19,7 +19,7 @@
 
             double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            //CuttingMp3(beginCut, endCut, mp3Path);
+            CuttingMp3(beginCut, endCut, mp3Path, calculatedFrameProSec);
 
             Console.WriteLine($"Total frame count: {totalFrameCount}");
 
@@ -66,7 +66,7 @@
             return (double)totalFrameCount / (double)totalTimeLength;
         }
 
-        private static void CuttingMp3(int begin, int end, string mp3Path)
+        private static void CuttingMp3(int begin, int end, string mp3Path, double frameProSec)
         {
             int beginCount = (int)Math.Round(begin * frameProSec);
             int endCount = (int)Math.Round(end * frameProSec);
@@ -77,15 +77,15 @@
             Directory.CreateDirectory(splitDir);
 
             int splitI = 0;
+            FileStream writer = null;
+            Action createWriter = new Action(() => {
+                writer = File.Create(Path.Combine(splitDir, Path.ChangeExtension(mp3File, (++splitI).ToString("D4") + ".mp3")));
+            });
+            
             int totalFrameCount = 0;
 
             using (var reader = new Mp3FileReader(mp3Path))
-            {
-                FileStream writer = null;
-                Action createWriter = new Action(() => {
-                    writer = File.Create(Path.Combine(splitDir, Path.ChangeExtension(mp3File, (++splitI).ToString("D4") + ".mp3")));
-                });
-
+            {                
                 Mp3Frame frame;
                 while ((frame = reader.ReadNextFrame()) != null)
                 {

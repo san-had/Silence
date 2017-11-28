@@ -4,9 +4,9 @@
     using System.IO;
     using NAudio.Wave;
 
-    public class Mp3Curtter
+    public class Mp3Cutter
     {
-        public Mp3Curtter(int beginCut, int endCut, string mp3Path)
+        public Mp3Cutter(int beginCut, int endCut, string mp3Path)
         {
             this.BeginCut = beginCut;
             this.EndCut = endCut;
@@ -27,9 +27,9 @@
 
             double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            var mp3Dto = this.CreateOutputDir(this.Mp3Path);
+            var mp3OutputDto = this.SetMp3OutputDto(this.Mp3Path);
 
-            CuttingMp3(this.BeginCut, this.EndCut, this.Mp3Path, calculatedFrameProSec);
+            CuttingMp3(this.BeginCut, this.EndCut, this.Mp3Path, calculatedFrameProSec, mp3OutputDto);
         }
 
         public int GetTotalFrameCount(string mp3Path)
@@ -68,42 +68,29 @@
             return (double)totalFrameCount / (double)totalTimeLength;
         }
 
-        public void PreprocessCutting(int begin, int end, string mp3Path, double frameProSec)
+        public Mp3OutputDto SetMp3OutputDto(string mp3Path)
         {
-            FileStream writer;
-            Action createWriter;
-            CreateMp3Writer(mp3File, splitDir, out writer, out createWriter);
-
-            CuttingMp32(begin, end, mp3Path, frameProSec, writer, createWriter);
-        }
-
-        public void CreateMp3Writer(Mp3Dto mp3Dto, out FileStream writer, out Action createWriter)
-        {
-            var mp3NewFilePath = Path.Combine(mp3Dto.SplitDir, Path.ChangeExtension(mp3Dto.Mp3FileName, (++splitI).ToString("D4") + ".mp3")
-            int splitI = 0;
-            writer = null;
-            createWriter = new Action(() =>
-            {
-                writer = File.Create());
-            });
-        }
-
-        public Mp3Dto CreateOutputDir(string mp3Path)
-        {
-            var mp3Dto = new Mp3Dto();
+            var mp3OutputDto = new Mp3OutputDto();
             var mp3Dir = Path.GetDirectoryName(mp3Path);
-            mp3Dto.Mp3FileName = Path.GetFileName(mp3Path);
-            mp3Dto.SplitDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path));
-            Directory.CreateDirectory(mp3Dto.SplitDir);
+            var mp3OutputFile = Path.GetFileName(mp3Path);
+            mp3OutputDto.OutputDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path));
+            mp3OutputDto.Mp3OutputFileName = Path.Combine(mp3OutputDto.OutputDir, Path.ChangeExtension(mp3OutputFile, "cut.mp3"));
 
-            return mp3Dto;
+            return mp3OutputDto;
         }
 
-        public void CuttingMp32(int begin, int end, string mp3Path, double frameProSec, FileStream writer, Action createWriter)
+        public void CuttingMp3(int begin, int end, string mp3Path, double frameProSec, Mp3OutputDto mp3OutputDto)
         {
             int beginCount = (int)Math.Round(begin * frameProSec);
             int endCount = (int)Math.Round(end * frameProSec);
 
+            Directory.CreateDirectory(mp3OutputDto.OutputDir);
+
+            FileStream writer = null;
+            Action createWriter = new Action(() =>
+            {
+                writer = File.Create(mp3OutputDto.Mp3OutputFileName);
+            });
             int totalFrameCount = 0;
 
             using (var reader = new Mp3FileReader(mp3Path))
@@ -126,12 +113,12 @@
                 if (writer != null) writer.Dispose();
             }
         }
-    }
 
-    public class Mp3Dto
-    {
-        public string SplitDir { get; set; }
+        public class Mp3OutputDto
+        {
+            public string OutputDir { get; set; }
 
-        public string Mp3FileName { get; set; }
+            public string Mp3OutputFileName { get; set; }
+        }
     }
 }

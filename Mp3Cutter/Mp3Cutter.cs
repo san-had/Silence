@@ -8,28 +8,31 @@
     {
         public Mp3Cutter(int beginCut, int endCut, string mp3Path)
         {
-            this.BeginCut = beginCut;
-            this.EndCut = endCut;
-            this.Mp3Path = mp3Path;
+            var mp3InputDto = new Mp3InputDto
+            {
+                BeginCut = beginCut,
+                EndCut = endCut,
+                Mp3Path = mp3Path
+            };
+
+            this.Mp3InputData = mp3InputDto;
         }
 
-        public int BeginCut { get; set; }
-
-        public int EndCut { get; set; }
-
-        public string Mp3Path { get; set; }
+        public Mp3InputDto Mp3InputData { get; set; }
 
         public void ExecuteCut()
         {
-            int totalFrameCount = GetTotalFrameCount(this.Mp3Path);
+            int totalFrameCount = GetTotalFrameCount(this.Mp3InputData.Mp3Path);
 
-            int totalTimeLength = GetTotalTimeLength(this.Mp3Path);
+            int totalTimeLength = GetTotalTimeLength(this.Mp3InputData.Mp3Path);
 
-            double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
+            this.Mp3InputData.FrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            var mp3OutputDto = this.SetMp3OutputDto(this.Mp3Path);
+            var mp3OutputDto = this.SetMp3OutputDto(this.Mp3InputData.Mp3Path);
 
-            CuttingMp3(this.BeginCut, this.EndCut, this.Mp3Path, calculatedFrameProSec, mp3OutputDto);
+            Directory.CreateDirectory(mp3OutputDto.OutputDir);
+
+            CuttingMp3(this.Mp3InputData, mp3OutputDto);
         }
 
         public int GetTotalFrameCount(string mp3Path)
@@ -79,21 +82,20 @@
             return mp3OutputDto;
         }
 
-        public void CuttingMp3(int begin, int end, string mp3Path, double frameProSec, Mp3OutputDto mp3OutputDto)
+        public void CuttingMp3(Mp3InputDto mp3InputDto, Mp3OutputDto mp3OutputDto)
         {
-            int beginCount = (int)Math.Round(begin * frameProSec);
-            int endCount = (int)Math.Round(end * frameProSec);
-
-            Directory.CreateDirectory(mp3OutputDto.OutputDir);
+            int beginCount = (int)Math.Round(mp3InputDto.BeginCut * mp3InputDto.FrameProSec);
+            int endCount = (int)Math.Round(mp3InputDto.EndCut * mp3InputDto.FrameProSec);
 
             FileStream writer = null;
             Action createWriter = new Action(() =>
             {
                 writer = File.Create(mp3OutputDto.Mp3OutputFileName);
             });
+
             int totalFrameCount = 0;
 
-            using (var reader = new Mp3FileReader(mp3Path))
+            using (var reader = new Mp3FileReader(mp3InputDto.Mp3Path))
             {
                 Mp3Frame frame;
                 while ((frame = reader.ReadNextFrame()) != null)
@@ -112,6 +114,17 @@
 
                 if (writer != null) writer.Dispose();
             }
+        }
+
+        public class Mp3InputDto
+        {
+            public int BeginCut { get; set; }
+
+            public int EndCut { get; set; }
+
+            public string Mp3Path { get; set; }
+
+            public double FrameProSec { get; set; }
         }
 
         public class Mp3OutputDto

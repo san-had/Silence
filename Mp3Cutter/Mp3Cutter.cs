@@ -6,6 +6,11 @@
 
     public class Mp3Cutter
     {
+        public Mp3Cutter()
+            : this(3, 4, "huhu")
+        {
+        }
+
         public Mp3Cutter(int beginCut, int endCut, string mp3Path)
         {
             var mp3InputDto = new Mp3InputDto

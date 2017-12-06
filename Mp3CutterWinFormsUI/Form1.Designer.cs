@@ -56,6 +56,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Vágás";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -199,6 +200,7 @@
             this.txtMp3FileName.Name = "txtMp3FileName";
             this.txtMp3FileName.Size = new System.Drawing.Size(326, 35);
             this.txtMp3FileName.TabIndex = 17;
+            this.txtMp3FileName.Validating += new System.ComponentModel.CancelEventHandler(this.txtMp3FileName_Validating);
             // 
             // btnFileSelection
             // 

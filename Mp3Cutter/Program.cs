@@ -6,9 +6,9 @@
 
     class Program
     {
-        private static int beginCut = 409;  // seconds
-        private static int endCut = 506;
-        private static string mp3Path = @"D:\mp3\20171225a.mp3";
+        private static int beginCut = 0;  // seconds
+        private static int endCut = 10;
+        private static string mp3Path = @"D:\mp3\20180325.mp3";
         private static string mp3Path2 = @"D:\mp3\20171225b.mp3";
         private static double frameProSec = 19.14183087027915;
 
@@ -20,7 +20,7 @@
 
             //double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            //CuttingMp3(beginCut, endCut, mp3Path, calculatedFrameProSec);
+            CuttingMp3(beginCut, endCut, mp3Path, frameProSec);
 
             //Console.WriteLine($"Total frame count: {totalFrameCount}");
 
@@ -28,7 +28,7 @@
 
             //Console.WriteLine($"FrameProSec: {calculatedFrameProSec}");
 
-            MergingMp3(mp3Path, mp3Path2);
+            //MergingMp3(mp3Path, mp3Path2);
 
             Console.Read();
         }

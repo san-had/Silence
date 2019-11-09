@@ -7,18 +7,21 @@
     internal class Program
     {
         private static int beginCut = 0;  // seconds
-        private static int endCut = 10;
-        private static string mp3Path = @"D:\mp3\20180402_1.mp3";
-        private static string mp3Path2 = @"D:\mp3\20180402_2.mp3";
-        private static double frameProSec = 19.14183087027915;
+        private static int endCut = 2;
+        private static string mp3Path = @"D:\mp3\20191031_ori3.mp3";
+
+        ////private static string mp3Path2 = @"D:\mp3\20180402_2.mp3";
+        //private static double frameProSec = 19.14183087027915;
+
+        //private static double frameProSec = 38.282876064333;
 
         private static void Main(string[] args)
         {
-            //int totalFrameCount = GetTotalFrameCount(mp3Path);
+            var mp3Cutter = new Mp3Cutter(beginCut, endCut, mp3Path);
 
-            //int totalTimeLength = GetTotalTimeLength(mp3Path);
+            mp3Cutter.ExecuteCut();
 
-            //double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
+            //DisplayFrameProSec();
 
             //CuttingMp3(beginCut, endCut, mp3Path, frameProSec);
 
@@ -26,88 +29,76 @@
 
             //Console.WriteLine($"Total time length: {totalTimeLength}");
 
-            //Console.WriteLine($"FrameProSec: {calculatedFrameProSec}");
-
-            MergingMp3(mp3Path, mp3Path2);
+            //MergingMp3(mp3Path, mp3Path2);
 
             Console.Read();
         }
 
-        private static int GetTotalFrameCount(string mp3Path)
-        {
-            int totalFrameCount = 0;
+        //private static void DisplayFrameProSec()
+        //{
+        //    int totalFrameCount = GetTotalFrameCount(mp3Path);
 
-            using (var reader = new Mp3FileReader(mp3Path))
-            {
-                Mp3Frame frame;
+        // int totalTimeLength = GetTotalTimeLength(mp3Path);
 
-                while ((frame = reader.ReadNextFrame()) != null)
-                {
-                    totalFrameCount++;
-                }
-            }
+        // double calculatedFrameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            return totalFrameCount;
-        }
+        //    Console.WriteLine($"FrameProSec: {calculatedFrameProSec}");
+        //}
 
-        private static int GetTotalTimeLength(string mp3Path)
-        {
-            TimeSpan totalTimeLength = TimeSpan.MinValue;
+        //private static int GetTotalFrameCount(string mp3Path)
+        //{
+        //    int totalFrameCount = 0;
 
-            using (var reader = new Mp3FileReader(mp3Path))
-            {
-                totalTimeLength = reader.TotalTime;
-            }
+        // using (var reader = new Mp3FileReader(mp3Path)) { Mp3Frame frame;
 
-            var intTotalTimeLength = (int)Math.Round(totalTimeLength.TotalSeconds);
+        // while ((frame = reader.ReadNextFrame()) != null) { totalFrameCount++; } }
 
-            return intTotalTimeLength;
-        }
+        //    return totalFrameCount;
+        //}
 
-        private static double GetFrameProSec(int totalFrameCount, int totalTimeLength)
-        {
-            return (double)totalFrameCount / (double)totalTimeLength;
-        }
+        //private static int GetTotalTimeLength(string mp3Path)
+        //{
+        //    TimeSpan totalTimeLength = TimeSpan.MinValue;
 
-        private static void CuttingMp3(int begin, int end, string mp3Path, double frameProSec)
-        {
-            int beginCount = (int)Math.Round(begin * frameProSec);
-            int endCount = (int)Math.Round(end * frameProSec);
+        // using (var reader = new Mp3FileReader(mp3Path)) { totalTimeLength = reader.TotalTime; }
 
-            var mp3Dir = Path.GetDirectoryName(mp3Path);
-            var mp3File = Path.GetFileName(mp3Path);
-            var splitDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path));
-            Directory.CreateDirectory(splitDir);
+        // var intTotalTimeLength = (int)Math.Round(totalTimeLength.TotalSeconds);
 
-            int splitI = 0;
-            FileStream writer = null;
-            Action createWriter = new Action(() =>
-            {
-                writer = File.Create(Path.Combine(splitDir, Path.ChangeExtension(mp3File, (++splitI).ToString("D4") + ".mp3")));
-            });
+        //    return intTotalTimeLength;
+        //}
 
-            int totalFrameCount = 0;
+        //private static double GetFrameProSec(int totalFrameCount, int totalTimeLength)
+        //{
+        //    return (double)totalFrameCount / (double)totalTimeLength;
+        //}
 
-            using (var reader = new Mp3FileReader(mp3Path))
-            {
-                Mp3Frame frame;
-                while ((frame = reader.ReadNextFrame()) != null)
-                {
-                    if (writer == null) createWriter();
+        //private static void CuttingMp3(int begin, int end, string mp3Path, double frameProSec)
+        //{
+        //    int beginCount = (int)Math.Round(begin * frameProSec);
+        //    int endCount = (int)Math.Round(end * frameProSec);
 
-                    if (totalFrameCount > beginCount && totalFrameCount < endCount)
-                    {
-                        ++totalFrameCount;
-                        continue;
-                    }
+        // var mp3Dir = Path.GetDirectoryName(mp3Path); var mp3File = Path.GetFileName(mp3Path); var
+        // splitDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path)); Directory.CreateDirectory(splitDir);
 
-                    writer.Write(frame.RawData, 0, frame.RawData.Length);
-                    ++totalFrameCount;
-                }
+        // int splitI = 0; FileStream writer = null; Action createWriter = new Action(() => { writer
+        // = File.Create(Path.Combine(splitDir, Path.ChangeExtension(mp3File,
+        // (++splitI).ToString("D4") + ".mp3"))); });
 
-                if (writer != null) writer.Dispose();
-            }
-        }
+        // int totalFrameCount = 0;
+
+        // using (var reader = new Mp3FileReader(mp3Path)) { Mp3Frame frame; while ((frame =
+        // reader.ReadNextFrame()) != null) { if (writer == null) createWriter();
+
+        // if (totalFrameCount > beginCount && totalFrameCount < endCount) {
+        // ++totalFrameCount; continue; }
+
+        // writer.Write(frame.RawData, 0, frame.RawData.Length);
+        // ++totalFrameCount; }
+
+        //        if (writer != null)
+        //            writer.Dispose();
+        //    }
+        //}
 
         private static void MergingMp3(string mp3Path, string mp3Path2)
         {
@@ -130,7 +121,8 @@
                 Mp3Frame frame;
                 while ((frame = reader.ReadNextFrame()) != null)
                 {
-                    if (writer == null) createWriter();
+                    if (writer == null)
+                        createWriter();
 
                     writer.Write(frame.RawData, 0, frame.RawData.Length);
                 }
@@ -141,14 +133,16 @@
                 Mp3Frame frame;
                 while ((frame = reader.ReadNextFrame()) != null)
                 {
-                    if (writer == null) createWriter();
+                    if (writer == null)
+                        createWriter();
 
                     writer.Write(frame.RawData, 0, frame.RawData.Length);
                     ++totalFrameCount;
                 }
             }
 
-            if (writer != null) writer.Dispose();
+            if (writer != null)
+                writer.Dispose();
         }
     }
 }

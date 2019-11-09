@@ -20,21 +20,21 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtMp3FileName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
         }
 
         public bool IsTextboxBoxNotEmpty(string textBoxContent, out string errorMessage)
         {
+            errorMessage = string.Empty;
             if (textBoxContent.Length == 0)
             {
                 errorMessage = "Empty TextBox content";
                 return false;
             }
+            return true;
         }
     }
 }

@@ -6,6 +6,8 @@
 
     public class Mp3Cutter
     {
+        private const string Postfix = "cut.mp3";
+
         public Mp3Cutter()
             : this(3, 4, "huhu")
         {
@@ -82,7 +84,7 @@
             var mp3Dir = Path.GetDirectoryName(mp3Path);
             var mp3OutputFile = Path.GetFileName(mp3Path);
             mp3OutputDto.OutputDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path));
-            mp3OutputDto.Mp3OutputFileName = Path.Combine(mp3OutputDto.OutputDir, Path.ChangeExtension(mp3OutputFile, "cut.mp3"));
+            mp3OutputDto.Mp3OutputFileName = Path.Combine(mp3OutputDto.OutputDir, Path.ChangeExtension(mp3OutputFile, Postfix));
 
             return mp3OutputDto;
         }

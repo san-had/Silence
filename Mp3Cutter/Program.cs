@@ -7,8 +7,8 @@
     internal class Program
     {
         private static int beginCut = 0;  // seconds
-        private static int endCut = 2;
-        private static string mp3Path = @"D:\mp3\20191031_ori3.mp3";
+        private static int endCut = 1;
+        private static string mp3Path = @"D:\mp3\20191215.mp3";
 
         ////private static string mp3Path2 = @"D:\mp3\20180402_2.mp3";
         //private static double frameProSec = 19.14183087027915;

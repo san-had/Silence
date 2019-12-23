@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silence", "Silence\Silence.csproj", "{FE2EE1C1-0524-4089-8419-F4003F4A988E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilenceTest", "SilenceTest\SilenceTest.csproj", "{0E9D6A4F-DF80-480E-9776-4DD1EBF632B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3Cutter", "Mp3Cutter\Mp3Cutter.csproj", "{DB27F220-7787-4523-87C4-F0F1BA7550F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3CutterService", "Mp3Cutter\Mp3CutterService.csproj", "{DB27F220-7787-4523-87C4-F0F1BA7550F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3CutterWinFormsUI", "Mp3CutterWinFormsUI\Mp3CutterWinFormsUI.csproj", "{28559915-F0BC-4886-99DE-F9CF514D84AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3Cutter.Tests.Unit", "Mp3Cutter.Tests.Unit\Mp3Cutter.Tests.Unit.csproj", "{28D0252F-EA62-43E8-B174-F4B617081E73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3CutterConsole", "Mp3CutterConsole\Mp3CutterConsole.csproj", "{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,8 +81,23 @@ Global
 		{28D0252F-EA62-43E8-B174-F4B617081E73}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{28D0252F-EA62-43E8-B174-F4B617081E73}.Release|x86.ActiveCfg = Release|Any CPU
 		{28D0252F-EA62-43E8-B174-F4B617081E73}.Release|x86.Build.0 = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Debug|x86.Build.0 = Debug|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|x86.ActiveCfg = Release|Any CPU
+		{50B26A93-A503-45A2-BCC2-C5D2FAA375BC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE04B182-DBB5-4889-AF6E-27DB39DD2163}
 	EndGlobalSection
 EndGlobal

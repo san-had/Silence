@@ -81,9 +81,9 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mp3Cutter\Mp3Cutter.csproj">
+    <ProjectReference Include="..\Mp3Cutter\Mp3CutterService.csproj">
       <Project>{db27f220-7787-4523-87c4-f0f1ba7550f6}</Project>
-      <Name>Mp3Cutter</Name>
+      <Name>Mp3CutterService</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

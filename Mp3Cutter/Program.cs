@@ -17,9 +17,9 @@
 
         private static void Main(string[] args)
         {
-            var mp3Cutter = new Mp3Cutter(beginCut, endCut, mp3Path);
+            //var mp3Cutter = new Mp3Cutter(beginCut, endCut, mp3Path);
 
-            mp3Cutter.ExecuteCut();
+            //mp3Cutter.ExecuteCut();
 
             //DisplayFrameProSec();
 

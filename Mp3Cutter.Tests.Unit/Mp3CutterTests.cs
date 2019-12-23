@@ -1,5 +1,6 @@
 ﻿namespace Mp3Cutter.Tests.Unit
 {
+    using Mp3CutterService;
     using Xunit;
 
     public class Mp3CutterTests

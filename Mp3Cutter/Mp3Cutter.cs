@@ -69,7 +69,7 @@
             var mp3OutputDto = new Mp3OutputDto();
             var mp3Dir = Path.GetDirectoryName(mp3Path);
             var mp3OutputFile = Path.GetFileName(mp3Path);
-            mp3OutputDto.OutputDir = Path.Combine(mp3Dir, Path.GetFileNameWithoutExtension(mp3Path));
+            mp3OutputDto.OutputDir = mp3Dir;
             mp3OutputDto.Mp3OutputFileName = Path.Combine(mp3OutputDto.OutputDir, Path.ChangeExtension(mp3OutputFile, Postfix));
 
             return mp3OutputDto;

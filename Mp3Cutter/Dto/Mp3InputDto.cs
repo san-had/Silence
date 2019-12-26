@@ -7,5 +7,7 @@
         public int EndCut { get; set; }
 
         public string Mp3Path { get; set; }
+
+        public int Index { get; set; }
     }
 }

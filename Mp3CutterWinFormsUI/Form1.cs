@@ -11,6 +11,8 @@
         private const string InvalidFileMessage = "Hibás típusú file!";
         private const string SuccessFileMessage = "File sikeresen megvágva!";
 
+        private int index = 0;
+
         private Mp3Cutter mp3Cutter;
 
         public Form1()
@@ -69,6 +71,7 @@
             mp3Input.BeginCut = beginHours * 3600 + beginMinutes * 60 + beginSeconds;
             mp3Input.EndCut = endHours * 3600 + endMinutes * 60 + endSeconds;
             mp3Input.Mp3Path = txtMp3FileName.Text;
+            mp3Input.Index = ++index;
 
             return mp3Input;
         }

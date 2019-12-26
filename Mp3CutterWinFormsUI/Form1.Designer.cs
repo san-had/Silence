@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExecution = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBeginHour = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBeginMinute = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBeginSecond = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtEndSecond = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtEndMinute = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtEndHour = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtMp3FileName = new System.Windows.Forms.TextBox();
             this.btnFileSelection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnExecution
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(164, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 49);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Vágás";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnExecution.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecution.Location = new System.Drawing.Point(164, 321);
+            this.btnExecution.Name = "btnExecution";
+            this.btnExecution.Size = new System.Drawing.Size(146, 49);
+            this.btnExecution.TabIndex = 0;
+            this.btnExecution.Text = "Vágás";
+            this.btnExecution.UseVisualStyleBackColor = true;
+            this.btnExecution.Click += new System.EventHandler(this.btnExecution_Click);
             // 
             // label1
             // 
@@ -68,15 +68,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Vágás kezdete:";
             // 
-            // textBox1
+            // txtBeginHour
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(181, 73);
-            this.textBox1.MaxLength = 2;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(29, 35);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "00";
+            this.txtBeginHour.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBeginHour.Location = new System.Drawing.Point(181, 73);
+            this.txtBeginHour.MaxLength = 2;
+            this.txtBeginHour.Name = "txtBeginHour";
+            this.txtBeginHour.Size = new System.Drawing.Size(29, 35);
+            this.txtBeginHour.TabIndex = 3;
+            this.txtBeginHour.Text = "00";
             // 
             // label3
             // 
@@ -88,15 +88,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = ":";
             // 
-            // textBox2
+            // txtBeginMinute
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(270, 76);
-            this.textBox2.MaxLength = 2;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(29, 35);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "00";
+            this.txtBeginMinute.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBeginMinute.Location = new System.Drawing.Point(270, 76);
+            this.txtBeginMinute.MaxLength = 2;
+            this.txtBeginMinute.Name = "txtBeginMinute";
+            this.txtBeginMinute.Size = new System.Drawing.Size(29, 35);
+            this.txtBeginMinute.TabIndex = 5;
+            this.txtBeginMinute.Text = "00";
             // 
             // label4
             // 
@@ -108,15 +108,15 @@
             this.label4.TabIndex = 6;
             this.label4.Text = ":";
             // 
-            // textBox3
+            // txtBeginSecond
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(369, 76);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(31, 35);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.Text = "00";
+            this.txtBeginSecond.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBeginSecond.Location = new System.Drawing.Point(369, 76);
+            this.txtBeginSecond.MaxLength = 2;
+            this.txtBeginSecond.Name = "txtBeginSecond";
+            this.txtBeginSecond.Size = new System.Drawing.Size(31, 35);
+            this.txtBeginSecond.TabIndex = 7;
+            this.txtBeginSecond.Text = "00";
             // 
             // label5
             // 
@@ -128,15 +128,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Mp3 vágás";
             // 
-            // textBox4
+            // txtEndSecond
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(369, 159);
-            this.textBox4.MaxLength = 2;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(31, 35);
-            this.textBox4.TabIndex = 14;
-            this.textBox4.Text = "00";
+            this.txtEndSecond.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndSecond.Location = new System.Drawing.Point(369, 159);
+            this.txtEndSecond.MaxLength = 2;
+            this.txtEndSecond.Name = "txtEndSecond";
+            this.txtEndSecond.Size = new System.Drawing.Size(31, 35);
+            this.txtEndSecond.TabIndex = 14;
+            this.txtEndSecond.Text = "00";
             // 
             // label2
             // 
@@ -148,15 +148,15 @@
             this.label2.TabIndex = 13;
             this.label2.Text = ":";
             // 
-            // textBox5
+            // txtEndMinute
             // 
-            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(270, 159);
-            this.textBox5.MaxLength = 2;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(29, 35);
-            this.textBox5.TabIndex = 12;
-            this.textBox5.Text = "00";
+            this.txtEndMinute.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndMinute.Location = new System.Drawing.Point(270, 159);
+            this.txtEndMinute.MaxLength = 2;
+            this.txtEndMinute.Name = "txtEndMinute";
+            this.txtEndMinute.Size = new System.Drawing.Size(29, 35);
+            this.txtEndMinute.TabIndex = 12;
+            this.txtEndMinute.Text = "00";
             // 
             // label6
             // 
@@ -168,15 +168,15 @@
             this.label6.TabIndex = 11;
             this.label6.Text = ":";
             // 
-            // textBox6
+            // txtEndHour
             // 
-            this.textBox6.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(181, 156);
-            this.textBox6.MaxLength = 2;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(29, 35);
-            this.textBox6.TabIndex = 10;
-            this.textBox6.Text = "00";
+            this.txtEndHour.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndHour.Location = new System.Drawing.Point(181, 156);
+            this.txtEndHour.MaxLength = 2;
+            this.txtEndHour.Name = "txtEndHour";
+            this.txtEndHour.Size = new System.Drawing.Size(29, 35);
+            this.txtEndHour.TabIndex = 10;
+            this.txtEndHour.Text = "00";
             // 
             // label7
             // 
@@ -200,7 +200,6 @@
             this.txtMp3FileName.Name = "txtMp3FileName";
             this.txtMp3FileName.Size = new System.Drawing.Size(326, 35);
             this.txtMp3FileName.TabIndex = 17;
-            this.txtMp3FileName.Validating += new System.ComponentModel.CancelEventHandler(this.txtMp3FileName_Validating);
             // 
             // btnFileSelection
             // 
@@ -220,20 +219,20 @@
             this.ClientSize = new System.Drawing.Size(462, 417);
             this.Controls.Add(this.btnFileSelection);
             this.Controls.Add(this.txtMp3FileName);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtEndSecond);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtEndMinute);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtEndHour);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBeginSecond);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBeginMinute);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBeginHour);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExecution);
             this.Name = "Form1";
             this.Text = "Mp3 vágó";
             this.ResumeLayout(false);
@@ -243,19 +242,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExecution;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBeginHour;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBeginMinute;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBeginSecond;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtEndSecond;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtEndMinute;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtEndHour;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox txtMp3FileName;

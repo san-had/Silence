@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\CuttingTimeDto.cs" />
     <Compile Include="Dto\Mp3InputDto.cs" />
     <Compile Include="Dto\Mp3OutputDto.cs" />
     <Compile Include="IMp3Cutter.cs" />
+    <Compile Include="IMp3InputSetter.cs" />
+    <Compile Include="IMp3OutputSetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

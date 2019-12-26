@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
+    using Mp3CutterExtensibility;
     using Mp3CutterExtensibility.Dto;
     using Mp3CutterService;
 
@@ -13,11 +14,13 @@
 
         private int index = 0;
 
+        private IMp3InputSetter mp3InputSetter;
         private Mp3Cutter mp3Cutter;
 
         public Form1()
         {
             InitializeComponent();
+            mp3InputSetter = new Mp3InputSetter();
             mp3Cutter = new Mp3Cutter();
         }
 
@@ -58,20 +61,18 @@
 
         private Mp3InputDto CreateInput()
         {
-            int beginHours = Int32.Parse(txtBeginHour.Text);
-            int beginMinutes = Int32.Parse(txtBeginMinute.Text);
-            int beginSeconds = Int32.Parse(txtBeginSecond.Text);
+            var cuttingTimeDto = new CuttingTimeDto();
 
-            int endHours = Int32.Parse(txtEndHour.Text);
-            int endMinutes = Int32.Parse(txtEndMinute.Text);
-            int endSeconds = Int32.Parse(txtEndSecond.Text);
+            cuttingTimeDto.BeginHour = Int32.Parse(txtBeginHour.Text);
+            cuttingTimeDto.BeginMinute = Int32.Parse(txtBeginMinute.Text);
+            cuttingTimeDto.BeginSecond = Int32.Parse(txtBeginSecond.Text);
 
-            var mp3Input = new Mp3InputDto();
+            cuttingTimeDto.EndHour = Int32.Parse(txtEndHour.Text);
+            cuttingTimeDto.EndMinute = Int32.Parse(txtEndMinute.Text);
+            cuttingTimeDto.EndSecond = Int32.Parse(txtEndSecond.Text);
 
-            mp3Input.BeginCut = beginHours * 3600 + beginMinutes * 60 + beginSeconds;
-            mp3Input.EndCut = endHours * 3600 + endMinutes * 60 + endSeconds;
-            mp3Input.Mp3Path = txtMp3FileName.Text;
-            mp3Input.Index = ++index;
+            index++;
+            var mp3Input = mp3InputSetter.SetMp3InputDto(cuttingTimeDto, txtMp3FileName.Text, index);
 
             return mp3Input;
         }

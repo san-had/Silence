@@ -2,14 +2,20 @@
 {
     using System;
     using System.IO;
+    using Mp3CutterExtensibility;
     using Mp3CutterExtensibility.Dto;
     using NAudio.Wave;
 
     public class Mp3Cutter
     {
-        private const string Postfix = "cut{0}.mp3";
-
         private double frameProSec;
+
+        private IMp3OutputSetter mp3OutputSetter;
+
+        public Mp3Cutter()
+        {
+            mp3OutputSetter = new Mp3OutputSetter();
+        }
 
         public Mp3OutputDto ExecuteCut(Mp3InputDto mp3InputDto)
         {
@@ -19,9 +25,7 @@
 
             frameProSec = GetFrameProSec(totalFrameCount, totalTimeLength);
 
-            var mp3OutputDto = this.SetMp3OutputDto(mp3InputDto.Index, mp3InputDto.Mp3Path);
-
-            Directory.CreateDirectory(mp3OutputDto.OutputDir);
+            var mp3OutputDto = mp3OutputSetter.SetMp3OutputDto(mp3InputDto.Index, mp3InputDto.Mp3Path);
 
             CuttingMp3(mp3InputDto, mp3OutputDto);
 
@@ -62,19 +66,6 @@
         public double GetFrameProSec(int totalFrameCount, int totalTimeLength)
         {
             return (double)totalFrameCount / (double)totalTimeLength;
-        }
-
-        private Mp3OutputDto SetMp3OutputDto(int index, string mp3Path)
-        {
-            string postFix = string.Format(Postfix, index);
-            var mp3OutputDto = new Mp3OutputDto();
-            var mp3Dir = Path.GetDirectoryName(mp3Path);
-            string previouspostfix = $".cut{index - 1}";
-            var mp3OutputFile = Path.GetFileName(mp3Path).Replace(previouspostfix, string.Empty);
-            mp3OutputDto.OutputDir = mp3Dir;
-            mp3OutputDto.Mp3OutputFileName = Path.Combine(mp3OutputDto.OutputDir, Path.ChangeExtension(mp3OutputFile, postFix));
-
-            return mp3OutputDto;
         }
 
         private void CuttingMp3(Mp3InputDto mp3InputDto, Mp3OutputDto mp3OutputDto)

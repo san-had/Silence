@@ -2,8 +2,8 @@
 {
     using System;
     using System.Windows.Forms;
+    using Mp3CutterExtensibility.Dto;
     using Mp3CutterService;
-    using Mp3CutterService.Dto;
 
     public partial class Form1 : Form
     {

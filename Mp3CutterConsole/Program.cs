@@ -1,5 +1,5 @@
 ﻿using System;
-using Mp3CutterService.Dto;
+using Mp3CutterExtensibility.Dto;
 
 namespace Mp3CutterConsole
 {

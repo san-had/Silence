@@ -1,4 +1,4 @@
-﻿namespace Mp3CutterService.Dto
+﻿namespace Mp3CutterExtensibility.Dto
 {
     public class Mp3OutputDto
     {

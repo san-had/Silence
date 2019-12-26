@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mp3CutterExtensibility\Mp3CutterExtensibility.csproj">
+      <Project>{2597e4ba-7123-4553-ae8e-28797980d70b}</Project>
+      <Name>Mp3CutterExtensibility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mp3Cutter\Mp3CutterService.csproj">
       <Project>{db27f220-7787-4523-87c4-f0f1ba7550f6}</Project>
       <Name>Mp3CutterService</Name>

@@ -2,7 +2,7 @@
 {
     using System;
     using System.IO;
-    using global::Mp3CutterService.Dto;
+    using Mp3CutterExtensibility.Dto;
     using NAudio.Wave;
 
     public class Mp3Cutter

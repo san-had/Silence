@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DB27F220-7787-4523-87C4-F0F1BA7550F6}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mp3Cutter</RootNamespace>
     <AssemblyName>Mp3Cutter</AssemblyName>
@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NAudio">
       <HintPath>..\Component\NAudio.dll</HintPath>
@@ -49,8 +52,8 @@
   <ItemGroup>
     <Compile Include="Mp3Cutter.cs" />
     <Compile Include="Mp3InputSetter.cs" />
+    <Compile Include="Mp3Merger.cs" />
     <Compile Include="Mp3OutputSetter.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

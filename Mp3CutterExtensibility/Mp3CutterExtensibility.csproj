@@ -46,6 +46,7 @@
     <Compile Include="Dto\Mp3OutputDto.cs" />
     <Compile Include="IMp3Cutter.cs" />
     <Compile Include="IMp3InputSetter.cs" />
+    <Compile Include="IMp3Merger.cs" />
     <Compile Include="IMp3OutputSetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

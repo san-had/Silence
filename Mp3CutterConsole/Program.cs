@@ -1,5 +1,6 @@
 ﻿using System;
 using Mp3CutterExtensibility.Dto;
+using Mp3CutterService;
 
 namespace Mp3CutterConsole
 {
@@ -7,12 +8,21 @@ namespace Mp3CutterConsole
     {
         private static void Main()
         {
-            var mp3InputDto = new Mp3InputDto
+            var cuttingTimeDto = new CuttingTimeDto
             {
-                BeginCut = 0,
-                EndCut = 1,
-                Mp3Path = @"D:\mp3\20191215_ori.mp3"
+                BeginHour = 0,
+                BeginMinute = 0,
+                BeginSecond = 0,
+                EndHour = 0,
+                EndMinute = 0,
+                EndSecond = 1
             };
+
+            var mp3InputSetter = new Mp3InputSetter();
+
+            var mp3InputDto = mp3InputSetter.SetMp3InputDto(cuttingTimeDto, null, 1);
+
+            mp3InputDto.Mp3Path = @"D:\mp3\20191215_ori.mp3";
 
             var mp3Cutter = new Mp3CutterService.Mp3Cutter();
 
